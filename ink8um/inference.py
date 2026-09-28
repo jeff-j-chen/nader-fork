@@ -49,9 +49,13 @@ def list_layer_files(layers_dir: Path) -> list[Path]:
 
 
 def _read_layer(path: Path) -> np.ndarray:
+    image = None
     if path.suffix.lower() in (".tif", ".tiff"):
-        image = tifffile.imread(path)
-    else:
+        try:
+            image = tifffile.imread(path)
+        except ValueError:  # compressed TIFF without the optional imagecodecs package
+            image = None
+    if image is None:
         image = cv2.imread(str(path), cv2.IMREAD_UNCHANGED)
         if image is None:
             raise OSError(f"Could not read {path}")

@@ -2,6 +2,7 @@
 torch>=2.1
 numpy
 tifffile
+imagecodecs            # LZW-compressed layer TIFFs
 opencv-python-headless
 safetensors
 huggingface_hub>=0.25

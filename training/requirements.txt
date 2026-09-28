@@ -6,6 +6,7 @@ numpy
 scipy
 Pillow
 tifffile
+imagecodecs
 albumentations==1.4.24
 segmentation-models-pytorch==0.5.0
 timm==1.0.28
