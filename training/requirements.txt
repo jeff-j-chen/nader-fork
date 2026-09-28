@@ -1,0 +1,29 @@
+# Training / finetuning. Versions verified in a clean Python 3.12 environment (CUDA 12.8 wheels).
+torch==2.8.0
+torchvision==0.23.0
+pytorch-lightning==2.6.5
+numpy
+scipy
+Pillow
+tifffile
+albumentations==1.4.24
+segmentation-models-pytorch==0.5.0
+timm==1.0.28
+warmup-scheduler==0.3
+wandb
+PyYAML
+zarr==2.18.4
+numcodecs==0.15.1
+matplotlib
+tqdm
+einops
+safetensors
+huggingface_hub>=0.25
+# stitched / topological validation metrics. cv2.ximgproc comes from the contrib build; topolosses
+# pulls in opencv-python, so all three OpenCV distributions are pinned to the same version.
+edt==3.1.2
+kimimaro==5.8.4
+topolosses==0.2.0
+opencv-contrib-python-headless==5.0.0.93
+opencv-python-headless==5.0.0.93
+opencv-python==5.0.0.93

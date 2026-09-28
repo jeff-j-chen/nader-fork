@@ -1,0 +1,7 @@
+# Inference (predict.py / ink8um)
+torch>=2.1
+numpy
+tifffile
+opencv-python-headless
+safetensors
+huggingface_hub>=0.25

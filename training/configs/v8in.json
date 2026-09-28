@@ -1,0 +1,293 @@
+{
+  "dataset_name": "8um_dataset",
+  "description": "v8-in base model: ResNet3D-50 encoder + 2D decoder, input InstanceNorm3d(1, affine=True), 64x64x24 tiles upsampled in-model to 256x256x96. Trained from the v8 patch pack; effective batch 128.",
+  "wandb": {
+    "enabled": false,
+    "project": "ink-8um",
+    "entity": null,
+    "group": "v8in",
+    "tags": [
+      "ink-8um",
+      "resnet3d",
+      "v8in"
+    ]
+  },
+  "segments": {
+    "20231005123336": {
+      "base_path": "Scroll1",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20231012184423": {
+      "base_path": "Scroll1",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20241030152031": {
+      "base_path": "Scroll5",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20241108111522": {
+      "base_path": "Scroll5",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20241108115232": {
+      "base_path": "Scroll5",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20241108120732": {
+      "base_path": "Scroll5",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20241113070770": {
+      "base_path": "Scroll5",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20241113080880": {
+      "base_path": "Scroll5",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "20241113090990": {
+      "base_path": "Scroll5",
+      "layer_range": [
+        20,
+        44
+      ],
+      "reverse_layers": false
+    },
+    "1667_20240304144031": {
+      "base_path": "PHerc1667",
+      "layer_range": [
+        3,
+        27
+      ],
+      "reverse_layers": false
+    },
+    "0139_w033v5": {
+      "base_path": "PHerc0139",
+      "layer_range": [
+        2,
+        26
+      ],
+      "reverse_layers": false
+    },
+    "0139_w035v8": {
+      "base_path": "PHerc0139",
+      "layer_range": [
+        2,
+        26
+      ],
+      "reverse_layers": false
+    },
+    "0139_w044v8": {
+      "base_path": "PHerc0139",
+      "layer_range": [
+        2,
+        26
+      ],
+      "reverse_layers": false
+    },
+    "0139_w041v8": {
+      "base_path": "PHerc0139",
+      "layer_range": [
+        2,
+        26
+      ],
+      "reverse_layers": false
+    },
+    "0814_46527n9": {
+      "base_path": "PHerc0814",
+      "layer_range": [
+        2,
+        26
+      ],
+      "reverse_layers": false
+    },
+    "0500P2_front": {
+      "base_path": "PHerc0500P2",
+      "layer_range": [
+        2,
+        26
+      ],
+      "reverse_layers": false
+    },
+    "Frag1": {
+      "base_path": "Frags",
+      "layer_range": [
+        0,
+        24
+      ],
+      "reverse_layers": false
+    },
+    "0009B_ag132115": {
+      "base_path": "Eval0009B",
+      "layer_range": [
+        0,
+        24
+      ],
+      "reverse_layers": false
+    },
+    "Frag3": {
+      "base_path": "EvalFrags",
+      "layer_range": [
+        0,
+        24
+      ],
+      "reverse_layers": false
+    },
+    "Frag4": {
+      "base_path": "EvalFrags",
+      "layer_range": [
+        0,
+        24
+      ],
+      "reverse_layers": false
+    }
+  },
+  "training": {
+    "objective": "erm",
+    "sampler": "shuffle",
+    "loss_mode": "batch",
+    "save_every_epoch": true,
+    "train_segments": [
+      "20231005123336",
+      "20231012184423",
+      "20241030152031",
+      "20241108111522",
+      "20241108115232",
+      "20241108120732",
+      "20241113080880",
+      "20241113090990",
+      "1667_20240304144031",
+      "0139_w033v5",
+      "0139_w035v8",
+      "0139_w044v8",
+      "0139_w041v8",
+      "0814_46527n9",
+      "0500P2_front",
+      "Frag1"
+    ],
+    "val_segments": [
+      "0009B_ag132115",
+      "Frag3",
+      "Frag4"
+    ],
+    "val_label_suffix": "",
+    "val_mask_suffix": "",
+    "filter_empty_tile": true,
+    "data_backend": "tiff",
+    "dataset_root": "<set by train_v8in.py>",
+    "stitch_all_val": true,
+    "stitch_downsample": 4,
+    "stitch_train": false,
+    "stitching_schedule": {
+      "train_every_n_epochs": 1,
+      "eval_every_n_epochs": 1,
+      "eval_every_n_epochs_plus_one": false
+    }
+  },
+  "group_dro": {
+    "group_key": "base_path"
+  },
+  "training_hyperparameters": {
+    "model": {
+      "model_name": "Unet",
+      "backbone": "resnet3d",
+      "model_impl": "resnet3d_hybrid",
+      "in_chans": 24,
+      "encoder_depth": 5,
+      "target_size": 1,
+      "norm": "batch",
+      "group_norm_groups": 32,
+      "input_batchnorm": true,
+      "input_upsample_to": 256,
+      "input_upsample_depth_to": 96
+    },
+    "training": {
+      "size": 64,
+      "tile_size": 256,
+      "stride": 32,
+      "train_batch_size": 4,
+      "valid_batch_size": 8,
+      "use_amp": true,
+      "epochs": 10,
+      "scheduler": "cosine",
+      "lr": 2e-05,
+      "min_lr": 1e-06,
+      "weight_decay": 1e-06,
+      "num_workers": 16,
+      "layer_read_workers": 12,
+      "seed": 130697,
+      "eval_stitch_metrics": true,
+      "eval_topological_metrics_every_n_epochs": 5,
+      "eval_save_stitch_debug_images": false,
+      "eval_wandb_media_downsample": 2,
+      "accumulate_grad_batches": 8,
+      "onecycle_pct_start": 0.05,
+      "max_grad_norm": 1.0
+    },
+    "augmentation": {
+      "horizontal_flip": 0.5,
+      "vertical_flip": 0.5,
+      "shift_scale_rotate": {
+        "rotate_limit": 360,
+        "shift_limit": 0.15,
+        "scale_limit": 0.1,
+        "p": 0.75
+      },
+      "blur": {
+        "types": [
+          "GaussianBlur",
+          "MotionBlur"
+        ],
+        "p": 0.4
+      },
+      "coarse_dropout": {
+        "p": 0.5,
+        "max_holes": 2,
+        "max_width_ratio": 0.2,
+        "max_height_ratio": 0.2
+      },
+      "fourth_augment": {
+        "p": 0.6,
+        "min_crop_ratio": 0.9,
+        "max_crop_ratio": 1.0,
+        "cutout_max_count": 2,
+        "cutout_p": 0.6
+      },
+      "brightness_contrast": {
+        "p": 0.0
+      }
+    }
+  }
+}
