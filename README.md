@@ -125,7 +125,7 @@ names, and bit-identical logits on real tiles in both fp32 and fp16 autocast.
 
 - Finetuned model: [YoussefMoNader/ink-8um-v8in-pherc1447-loo-w062](https://huggingface.co/YoussefMoNader/ink-8um-v8in-pherc1447-loo-w062)
 - Training data: [YoussefMoNader/ink-8um-v8-patchpack](https://huggingface.co/datasets/YoussefMoNader/ink-8um-v8-patchpack)
-- PHerc. 1447 surfaces and predictions: [YoussefMoNader/ink-8um-pherc1447-surfaces](https://huggingface.co/datasets/YoussefMoNader/ink-8um-pherc1447-surfaces)
+- PHerc. 1447 surfaces and predictions, including this model's predictions on w058, w060 and w062 (`predictions/v8in.png`, run with `--reverse`): [YoussefMoNader/ink-8um-pherc1447-surfaces](https://huggingface.co/datasets/YoussefMoNader/ink-8um-pherc1447-surfaces)
 - Vesuvius Challenge data: <https://scrollprize.org/data> · code base: <https://github.com/ScrollPrize/villa>
 
 ## License
