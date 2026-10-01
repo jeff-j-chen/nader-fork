@@ -38,7 +38,7 @@ PH1447_RECIPE = {
     },
     "training": {
         "objective": "erm",
-        "sampler": "shuffle",
+        "sampler": "group_balanced",
         "loss_mode": "batch",
         "save_every_epoch": True,
         "train_segments": list(DEFAULT_TRAIN),
@@ -82,7 +82,7 @@ PH1447_RECIPE = {
             "train_batch_size": 4,
             "valid_batch_size": 16,
             "use_amp": True,
-            "epochs": 10,
+            "epochs": 6,
             "scheduler": "cosine",
             "lr": 1e-5,
             "min_lr": 1e-6,

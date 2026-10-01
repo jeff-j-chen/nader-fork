@@ -1,0 +1,6 @@
+runs/
+output/
+*.ckpt
+*.safetensors
+data/training_surfaces/20260928000003/layers
+_ves_tmp/
